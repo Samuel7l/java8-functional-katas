@@ -22,17 +22,17 @@ public class Kata9Test {
 		Assert.assertThat(Kata9.execute(),
 				equalTo(ImmutableList.of(
 						ImmutableMap.of("id", 70111470, "title", "Die Hard",
-								"time", new Date(), "boxart",
+								"time", new Date(), "url",
 								"http://cdn-0.nflximg.com/images/2891/DieHard150.jpg"),
 						ImmutableMap.of("id", 654356453, "title", "Bad Boys",
-								"time", new Date(), "boxart",
+								"time", new Date(), "url",
 								"http://cdn-0.nflximg.com/images/2891/BadBoys150.jpg"),
 						ImmutableMap.of("id", 65432445, "title",
 								"The Chamber", "time", new Date(),
-								"boxart",
+								"url",
 								"http://cdn-0.nflximg.com/images/2891/TheChamber150.jpg"),
 						ImmutableMap.of("id", 675465, "title", "Fracture",
-								"time", new Date(), "boxart",
+								"time", new Date(), "url",
 								"http://cdn-0.nflximg.com/images/2891/Fracture150.jpg"))));
 	}
 }

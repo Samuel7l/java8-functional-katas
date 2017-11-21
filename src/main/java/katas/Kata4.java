@@ -2,10 +2,12 @@ package katas;
 
 import java.util.List;
 import java.util.Map;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import com.google.common.collect.ImmutableMap;
 
+import model.BoxArt;
 import model.MovieList;
 import util.DataUtil;
 
@@ -14,16 +16,23 @@ import util.DataUtil;
 
 public class Kata4 {
 
-	public static final Integer BOX_HEIGHT = 150;
-	public static final Integer BOX_WIDTH = 200;
-	public static final String URL = "http://www.google.com.br";
+	private static final Integer BOX_HEIGHT = 200;
+	private static final Integer BOX_WIDTH = 150;
 
 	public static List<Map> execute() {
 		List<MovieList> movieLists = DataUtil.getMovieLists();
 
-		return movieLists.stream().flatMap(m -> m.getVideos().stream()).map(movie -> ImmutableMap.of("id", movie.getId(), "title", movie.getTitle(), "boxart", movie.getBoxarts())).collect(Collectors.toList());
+		return movieLists.stream().flatMap(m -> m.getVideos().stream())
+				.map(movie -> ImmutableMap.of("id", movie.getId(), "title",
+						movie.getTitle(), "boxart", movie.getBoxarts().stream()
+								.filter(getSizebleBoxArt()).map(BoxArt::getUrl)
+								.findFirst().get()))
+				.collect(Collectors.toList());
 
-		// BOX_HEIGHT,BOX_WIDTH,URL
-		// return ImmutableList.of(ImmutableMap.of("id", 5, "title", "Bad Boys", "boxart", new BoxArt(150, 200, "url")));
+	}
+
+	public static Predicate<BoxArt> getSizebleBoxArt() {
+		return boxArt -> BOX_WIDTH.equals(boxArt.getWidth())
+				&& BOX_HEIGHT.equals(boxArt.getHeight());
 	}
 }
