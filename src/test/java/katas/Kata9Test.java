@@ -18,7 +18,7 @@ public class Kata9Test {
 	}
 
 	@Test
-	public void testExecute1() {
+	public void testExecute2() {
 		Assert.assertThat(Kata9.execute(),
 				equalTo(ImmutableList.of(
 						ImmutableMap.of("id", 70111470, "title", "Die Hard",

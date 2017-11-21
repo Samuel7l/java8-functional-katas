@@ -15,7 +15,7 @@ public class Kata2Test {
 	}
 
 	@Test
-	public void testResponse() {
+	public void testExecute2() {
 
 		Assert.assertEquals(Kata2.execute(),
 				ImmutableList.of(654356453, 675465));

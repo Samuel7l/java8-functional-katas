@@ -16,7 +16,7 @@ public class Kata4Test {
 	}
 
 	@Test
-	public void testResponse() {
+	public void testExecute2() {
 
 		Assert.assertEquals(Kata4.execute(), ImmutableList.of(
 				ImmutableMap.of("id", 70111470, "title", "Die Hard", "boxart",

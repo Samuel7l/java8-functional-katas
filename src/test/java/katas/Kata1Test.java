@@ -19,7 +19,7 @@ public class Kata1Test {
 	}
 
 	@Test
-	public void testResponse() {
+	public void testExecute2() {
 		List<Map> expectedResult = ImmutableList.of(
 				ImmutableMap.of("id", 70111470, "title", "Die Hard"),
 				ImmutableMap.of("id", 654356453, "title", "Bad Boys"),

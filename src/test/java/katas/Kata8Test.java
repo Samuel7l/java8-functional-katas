@@ -15,7 +15,7 @@ public class Kata8Test {
 		Assert.assertThat(Kata8.execute().size(), equalTo(3));
 	}
 	@Test
-	public void testResponse() {
+	public void testExecute2() {
 
 		Assert.assertEquals(Kata8.execute(), ImmutableList.of(
 				ImmutableMap.of("videoId", 70111470, "bookmarkId", 470),

@@ -25,13 +25,13 @@ public class Kata4 {
 		return movieLists.stream().flatMap(m -> m.getVideos().stream())
 				.map(movie -> ImmutableMap.of("id", movie.getId(), "title",
 						movie.getTitle(), "boxart", movie.getBoxarts().stream()
-								.filter(getSizebleBoxArt()).map(BoxArt::getUrl)
+								.filter(getSizeableBoxArt()).map(BoxArt::getUrl)
 								.findFirst().get()))
 				.collect(Collectors.toList());
 
 	}
 
-	public static Predicate<BoxArt> getSizebleBoxArt() {
+	public static Predicate<BoxArt> getSizeableBoxArt() {
 		return boxArt -> BOX_WIDTH.equals(boxArt.getWidth())
 				&& BOX_HEIGHT.equals(boxArt.getHeight());
 	}

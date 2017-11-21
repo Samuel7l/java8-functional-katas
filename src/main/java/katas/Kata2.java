@@ -11,6 +11,8 @@ import util.DataUtil;
 public class Kata2 {
 	public static List<Integer> execute() {
 		List<Movie> movies = DataUtil.getMovies();
-		return movies.stream().filter(movie -> movie.getRating() == 5.0).map(Movie::getId).collect(Collectors.toList());
+
+		return movies.stream().filter(movie -> movie.getRating() == 5.0)
+				.map(Movie::getId).collect(Collectors.toList());
 	}
 }

@@ -1,7 +1,9 @@
 package katas;
 
 import java.util.List;
+import java.util.Optional;
 
+import model.BoxArt;
 import model.Movie;
 import util.DataUtil;
 
@@ -14,9 +16,17 @@ public class Kata6 {
 	public static String execute() {
 		List<Movie> movies = DataUtil.getMovies();
 
-		Integer largest = movies.stream().flatMap(m -> m.getBoxarts().stream()).map(m -> m.getHeight() * m.getWidth()).reduce(Integer::max).get();
+		return movies.stream().flatMap(m -> m.getBoxarts().stream()).filter(
+				m -> (m.getHeight() * m.getWidth()) == getLargestBoxArt(movies))
+				.map(BoxArt::getUrl).findAny().orElse("");
+	}
 
-		return movies.stream().flatMap(m -> m.getBoxarts().stream()).filter(m -> (m.getHeight() * m.getWidth()) == largest).map(m -> m.getUrl()).findAny().get();
+	private static Integer getLargestBoxArt(List<Movie> movies) {
+		Optional<Integer> largestBoxArt = movies.stream()
+				.flatMap(m -> m.getBoxarts().stream())
+				.map(m -> m.getHeight() * m.getWidth()).reduce(Integer::max);
+
+		return largestBoxArt.isPresent() ? largestBoxArt.get() : 0;
 	}
 
 }

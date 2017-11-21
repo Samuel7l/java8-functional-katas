@@ -16,7 +16,7 @@ public class Kata7Test {
 	}
 
 	@Test
-	public void testExecute1() {
+	public void testExecute2() {
 		Assert.assertThat(Kata7.execute(), equalTo(ImmutableList.of(
 				ImmutableMap.of("id", 70111470, "title", "Die Hard", "boxart",
 						"http://cdn-0.nflximg.com/images/2891/DieHard150.jpg"),
